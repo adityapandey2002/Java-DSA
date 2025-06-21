@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ArrayLists {
     public static void main(String[] args){
@@ -114,9 +112,37 @@ public class ArrayLists {
 //        List<Integer> list3 = List.of(1,2,3);
 //        System.out.println(list3);                  // [1, 2, 3]
 
+//            List<Integer> list = new ArrayList<>();
+//            list.add(1);
+//            list.add(389);
+//            list.add(34);
+//
+//            list.remove(2);
+//            System.out.println(list);       // will give [1, 389]
+//
+//            list.add(2, 34);
+//            list.remove(Integer.valueOf(34));   // to make sure we are calling that one of object class
+//                                                    // we have to convert it into wrapper class
+//            System.out.println(list);       // gives [1, 389]
+
+            List<Integer> list = new ArrayList<>();
+            list.add(1);
+            list.add(389);
+            list.add(34);
+
+            // we can convert it to array also using .toArray
+
+            System.out.println(list);           //   [1, 389, 34]
 
 
+            Integer[] array1 = list.toArray(new Integer[0]);
+            System.out.println(Arrays.toString(array1));              //   [1, 389, 34]
 
+
+            // Also we can sort our arraylist
+
+            Collections.sort(list);
+            System.out.println(list);                                  // [1, 34, 389]
 
     }
 }
