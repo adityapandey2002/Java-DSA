@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Vector;
 
@@ -95,6 +96,37 @@ public class Vectors {
 //        ConcurrentHashMap from the java.util.concurrent package are recommended, as they offer improved concurrency
 //        and scalability compared to the legacy Vector class.
 
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        Thread t1 = new Thread(() -> {
+            for (int i=0 ; i< 1000 ; i++){
+                arrayList.add(i);
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+            for (int i=0 ; i< 1000 ; i++){
+                arrayList.add(i);
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        try{
+            t1.join();
+            t2.join();
+        }   catch(InterruptedException e){
+            e.printStackTrace();
+        }
+
+        System.out.println("Size of arrayList: " + arrayList.size());       // here size of arraylist is coming
+                                                                            // different on every run between 1000 and 2002
+                                                                            // because at a time only one thread can run and if
+                                                                            //  at a time two threads come
+                                                                            //  then only one can add at that instance
+//        ArrayList<Integer> arrayList = new ArrayList<>();
+//        if we change ArrayList to Vector then as it is double threaded so answer will be constant 2000
+//        Vector<Integer> arrayList = new Vector<>();
 
 
     }
