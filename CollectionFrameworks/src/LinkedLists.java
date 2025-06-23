@@ -29,6 +29,7 @@ public class LinkedLists {
         animals.removeAll(animalsToRemove);
         System.out.println(animals);                        //  [Cat, Elephant]
 
-
+        linkedList.clear();                                 //  clears all the elements of a linkedList
+        System.out.println(linkedList);                     // []
     }
 }

@@ -144,5 +144,8 @@ public class ArrayLists {
             Collections.sort(list);
             System.out.println(list);                                  // [1, 34, 389]
 
+            list.clear();                   //  clears all the elements of a arraylist
+            System.out.println(list);                               // []
+
     }
 }
